@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+     - echo Entered the install phases...
+     - echo Installing dependencies...
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started 
+      - grep -Fq "yoyo" index.html
+    finally:
+      - echo This always runs even if the install command fails
+    post_build:
+      commands:
+        - echo Entered the post-build phase...
+        -  echo Build completed
+    
